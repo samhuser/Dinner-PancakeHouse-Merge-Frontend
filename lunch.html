@@ -3,12 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diner</title>
-    <link href="diner.css" rel="stylesheet"/>
+    <title>Lunch</title>
+    <link href="index.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="navbar.css">
   </head>
   <body>
+    <ul class="topnav">
+        <li><a href="index.html">All Menus</a></li>
+        <li><a href="breakfast.html">Breakfast</a></li>        
+        <li><a class="active" href="lunch.html">Lunch</a></li>
+        <li><a href="dinner.html">Dinner</a></li>
+        <li><a href="vegetarian.html">Vegetarian</a></li>
+        <li class="right"><a  href="login.html">Login</a></li>
+      </ul>
+
     <div id="menu" class="container">
-        <h1>Diner Menu</h1>
+        <h1>Lunch Menu</h1>
     </div>
 
     <script>
@@ -18,7 +28,7 @@
       displayTheMenu();
 
       async function getTheMenu() {
-        let response = await fetch(host + "/diner");
+        let response = await fetch(host + "/lunch");
         let menu = await response.json();
         return menu;
       }
