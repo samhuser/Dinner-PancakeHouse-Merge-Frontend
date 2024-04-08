@@ -43,7 +43,37 @@
   </div>
 </form>
 
-<script src="configuration.js"></script>
-<script src="register.js"></script>
+<script>
+  async function signup(){
+      let host = "https://lab08-64n7.onrender.com/signup";
+      let message = "";
+          let email = document.getElementById("email").value;
+          let username = document.getElementById("username").value;
+          let password = document.getElementById("password").value;
+
+          let customer = {username: username, password: password, email: email};
+          //alert("You entered: id=" + duck.id + " ,type=" + duck.type);
+
+          console.log("You entered:" + JSON.stringify(customer));
+
+          let request = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(customer)
+          };
+          let response = await fetch(host, request);
+          console.log(response);
+          if(response.status == 200) {
+              alert("Success!");
+              location.href = "login.html";
+          } else {
+            console.log(response);
+            message = "Something went wrong! Duck data could not be saved.";
+          }
+          console.log(message);
+  }
+</script>
 </body>
 </html>
