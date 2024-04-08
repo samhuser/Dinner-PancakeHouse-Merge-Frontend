@@ -22,13 +22,13 @@
     </div>
 
     <script>
-      let host = "http://localhost:8080";
+      let host = "https://midterm-csvm.onrender.com";
       let menuDiv = document.getElementById("menu");
 
       displayTheMenu();
 
       async function getTheMenu() {
-        let response = await fetch(host + "/lunch");
+        let response = await fetch(host + "/merger/lunch");
         let menu = await response.json();
         return menu;
       }
